@@ -69,24 +69,24 @@ ActiveRecord::Schema.define(version: 2021_06_28_132342) do
     t.boolean "edible"
     t.bigint "cap_shape_id", null: false
     t.bigint "cap_surface_id", null: false
-    t.integer "cap_color", null: false
+    t.integer "cap_color_id", null: false
     t.boolean "bruises"
     t.bigint "odor_id", null: false
     t.bigint "gill_attachment_id", null: false
     t.bigint "gill_spacing_id", null: false
     t.bigint "gill_size_id", null: false
-    t.integer "gill_color", null: false
+    t.integer "gill_color_id", null: false
     t.bigint "stalk_shape_id", null: false
     t.bigint "stalk_root_id", null: false
-    t.integer "stalk_surface_above_ring", null: false
-    t.integer "stalk_surface_below_ring", null: false
-    t.integer "stalk_color_above_ring", null: false
-    t.integer "stalk_color_below_ring", null: false
+    t.integer "stalk_surface_above_ring_id", null: false
+    t.integer "stalk_surface_below_ring_id", null: false
+    t.integer "stalk_color_above_ring_id", null: false
+    t.integer "stalk_color_below_ring_id", null: false
     t.bigint "veil_type_id", null: false
-    t.integer "veil_color", null: false
+    t.integer "veil_color_id", null: false
     t.bigint "ring_number_id", null: false
     t.bigint "ring_type_id", null: false
-    t.integer "spore_print_color", null: false
+    t.integer "spore_print_color_id", null: false
     t.bigint "population_id", null: false
     t.bigint "habitat_id", null: false
     t.datetime "created_at", precision: 6, null: false
