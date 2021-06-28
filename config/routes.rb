@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/index'
   resources :mushrooms
   namespace :api do
     namespace :v1 do

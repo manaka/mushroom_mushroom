@@ -62,7 +62,10 @@ mushroom = {
 puts mushroom
 
 # csv = CSV.foreach(str)
-# csv = CSV.new(str)
+str = 'e,b,y,w,t,l,f,c,b,n,e,c,s,s,w,w,p,w,o,p,n,s,m'
+csv = CSV.new(str)
+row = csv.shift
+#
 # csv.each do |row|
 #   puts row
 # end
@@ -88,4 +91,33 @@ rails g model Habitat name:string abbr:string
 
 
 rails g scaffold Mushroom name:string edible:boolean cap_shape:references cap_surface:references cap_color:references bruises:boolean odor:references gill_attachment:references gill_spacing:references gill_size:references gill_color:references stalk_shape:references stalk_root:references stalk_surface_above_ring:references stalk_surface_below_ring:references stalk_color_above_ring:references stalk_color_below_ring:references veil_type:references veil_color:references ring_number:references ring_type:references spore_print_color:references population:references habitat:references
+rails g task dictionaries populate cap_shape
 =end
+
+mushroom = {
+  name: 'Mushroom 1',
+  edible: true,
+  cap_shape_id: 7,
+  cap_surface_id: 3,
+  cap_color_id: 9,
+  bruises: true,
+  odor_id: 2,
+  gill_attachment_id: 3,
+  gill_spacing_id: 1,
+  gill_size_id: 1,
+  gill_color_id: 1,
+  stalk_shape_id: 1,
+  stalk_root_id: 2,
+  stalk_surface_above_ring_id: 4,
+  stalk_surface_below_ring_id: 4,
+  stalk_color_above_ring_id: 9,
+  stalk_color_below_ring_id: 9,
+  veil_type_id: 1,
+  veil_color_id: 9,
+  ring_number_id: 2,
+  ring_type_id: 6,
+  spore_print_color_id: 1,
+  population_id: 4,
+  habitat_id: 3
+}
+z = Mushroom.create(mushroom)
