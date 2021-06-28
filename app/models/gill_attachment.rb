@@ -1,0 +1,2 @@
+class GillAttachment < ApplicationRecord
+end
