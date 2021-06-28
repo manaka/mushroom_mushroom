@@ -1,0 +1,2 @@
+class CapShape < ApplicationRecord
+end
