@@ -1,0 +1,137 @@
+<%= form_with(model: mushroom) do |form| %>
+  <% if mushroom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mushroom.errors.count, "error") %> prohibited this mushroom from being saved:</h2>
+
+      <ul>
+        <% mushroom.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edible %>
+    <%= form.check_box :edible %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cap_shape_id %>
+    <%= form.text_field :cap_shape_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cap_surface_id %>
+    <%= form.text_field :cap_surface_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cap_color_id %>
+    <%= form.text_field :cap_color_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bruises %>
+    <%= form.check_box :bruises %>
+  </div>
+
+  <div class="field">
+    <%= form.label :odor_id %>
+    <%= form.text_field :odor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gill_attachment_id %>
+    <%= form.text_field :gill_attachment_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gill_spacing_id %>
+    <%= form.text_field :gill_spacing_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gill_size_id %>
+    <%= form.text_field :gill_size_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gill_color_id %>
+    <%= form.text_field :gill_color_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stalk_shape_id %>
+    <%= form.text_field :stalk_shape_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stalk_root_id %>
+    <%= form.text_field :stalk_root_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stalk_surface_above_ring_id %>
+    <%= form.text_field :stalk_surface_above_ring_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stalk_surface_below_ring_id %>
+    <%= form.text_field :stalk_surface_below_ring_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stalk_color_above_ring_id %>
+    <%= form.text_field :stalk_color_above_ring_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stalk_color_below_ring_id %>
+    <%= form.text_field :stalk_color_below_ring_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :veil_type_id %>
+    <%= form.text_field :veil_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :veil_color_id %>
+    <%= form.text_field :veil_color_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ring_number_id %>
+    <%= form.text_field :ring_number_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ring_type_id %>
+    <%= form.text_field :ring_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spore_print_color_id %>
+    <%= form.text_field :spore_print_color_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :population_id %>
+    <%= form.text_field :population_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :habitat_id %>
+    <%= form.text_field :habitat_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

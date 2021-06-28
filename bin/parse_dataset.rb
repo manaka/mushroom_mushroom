@@ -87,10 +87,5 @@ rails g model Population name:string abbr:string
 rails g model Habitat name:string abbr:string
 
 
-rails g scaffold Mushroom name:string edible:boolean cap_shape:references cap_surface:references cap_color:references
-bruises:boolean odor:references gill_attachment:references gill_spacing:references gill_size:references
-gill_color:references stalk_shape:references stalk_root:references stalk_surface_above_ring:references
-stalk_surface_below_ring:references stalk_color_above_ring:references stalk_color_below_ring:references
-veil_type:references veil_color:references ring_number:references ring_type:references spore_print_color:references
-population:references habitat:references
+rails g scaffold Mushroom name:string edible:boolean cap_shape:references cap_surface:references cap_color:references bruises:boolean odor:references gill_attachment:references gill_spacing:references gill_size:references gill_color:references stalk_shape:references stalk_root:references stalk_surface_above_ring:references stalk_surface_below_ring:references stalk_color_above_ring:references stalk_color_below_ring:references veil_type:references veil_color:references ring_number:references ring_type:references spore_print_color:references population:references habitat:references
 =end

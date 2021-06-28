@@ -1,0 +1,2 @@
+json.extract! mushroom, :id, :name, :edible, :cap_shape_id, :cap_surface_id, :cap_color_id, :bruises, :odor_id, :gill_attachment_id, :gill_spacing_id, :gill_size_id, :gill_color_id, :stalk_shape_id, :stalk_root_id, :stalk_surface_above_ring_id, :stalk_surface_below_ring_id, :stalk_color_above_ring_id, :stalk_color_below_ring_id, :veil_type_id, :veil_color_id, :ring_number_id, :ring_type_id, :spore_print_color_id, :population_id, :habitat_id, :created_at, :updated_at
+json.url mushroom_url(mushroom, format: :json)
