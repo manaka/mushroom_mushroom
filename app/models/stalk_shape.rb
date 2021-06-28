@@ -1,0 +1,2 @@
+class StalkShape < ApplicationRecord
+end
