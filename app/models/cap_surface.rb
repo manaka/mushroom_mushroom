@@ -1,0 +1,2 @@
+class CapSurface < ApplicationRecord
+end
