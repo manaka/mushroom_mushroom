@@ -1,0 +1,2 @@
+class GillSpacing < ApplicationRecord
+end
