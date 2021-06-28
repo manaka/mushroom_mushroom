@@ -1,0 +1,2 @@
+class RingNumber < ApplicationRecord
+end
