@@ -1,0 +1,2 @@
+class RingType < ApplicationRecord
+end
