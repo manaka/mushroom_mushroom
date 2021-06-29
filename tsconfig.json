@@ -3,7 +3,8 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "target": "ES6",
+    "lib": ["DOM", "ES6", "DOM.Iterable", "ScriptHost", "ES2016.Array.Include"],
     "module": "es6",
     "moduleResolution": "node",
     "baseUrl": ".",
@@ -11,7 +12,6 @@
         "*": ["node_modules/*", "app/javascript/*"]
     },
     "sourceMap": true,
-    "target": "es5",
     "noEmit": true,
     "jsx": "react"
   },
