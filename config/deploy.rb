@@ -2,6 +2,7 @@ lock '3.16.0'
 
 set :application, 'mushroom_mushroom'
 set :repo_url, 'git@github.com:manaka/mushroom_mushroom.git'
+set :branch, 'main'
 set :deploy_to, '/var/www/mushroom_mushroom'
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/master.key')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
