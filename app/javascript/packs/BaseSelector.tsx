@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import {DictCommonType} from "./Filters";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -18,33 +18,35 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export default function BaseSelector(props) {
-    const classes = useStyles();
-    const [age, setAge] = React.useState('');
+type PropsType = {
+    name: string,
+    humanName: string,
+    value: number,
+    dictionary: Array<DictCommonType>,
+    handleChange: any
+}
 
-    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-        setAge(event.target.value as string);
-    };
+const BaseSelector:FC<PropsType> = (props) => {
+    const classes = useStyles();
 
     return (
         <div>
             <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-helper-label">Cap Shape</InputLabel>
+                <InputLabel id={props.name + '-label'}>{props.humanName}</InputLabel>
                 <Select
-                    labelId="demo-simple-select-helper-label"
-                    id="demo-simple-select-helper"
-                    value={age}
-                    onChange={handleChange}
+                    labelId={props.name + '-label'}
+                    id={props.name}
+                    value={props.value}
+                    onChange={props.handleChange}
                 >
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    {props.dictionary && props.dictionary.map(item => <MenuItem value={item.id}>{item.name}</MenuItem>)}
                 </Select>
                 {/*<FormHelperText>Cap Shape</FormHelperText>*/}
             </FormControl>
         </div>
     );
 }
+export default BaseSelector

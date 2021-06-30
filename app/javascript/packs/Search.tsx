@@ -45,7 +45,7 @@ export default function Search() {
         console.log(mushrooms)
         if (dictionaries.length === 0) {
             axios.get('http://localhost:3000/api/v1/dictionaries.json').then(response => {
-                setDictionaries(response.data)
+                setDictionaries(response.data.dictionaries)
             })
         }
         if (mushrooms.length === 0) {
@@ -61,7 +61,7 @@ export default function Search() {
             <CssBaseline/>
             <MyHeader classes={classes}/>
             <Filters classes={classes} dictionaries={dictionaries}/>
-            <SearchContent classes={classes} dictionaries={dictionaries.dictionaries} mushrooms={mushrooms}  />
+            <SearchContent classes={classes} dictionaries={dictionaries} mushrooms={mushrooms}  />
         </div>
     );
 }

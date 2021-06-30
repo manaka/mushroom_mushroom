@@ -7,18 +7,6 @@ import TableRow from '@material-ui/core/TableRow';
 import CheckIcon from '@material-ui/icons/Check';
 import ClearIcon from '@material-ui/icons/Clear';
 
-function createData(id, name, edible, capShape, capSurface, capColor) {
-    return { id, name, edible, capShape, capSurface, capColor };
-}
-
-const rows = [
-    createData(0, 'Mushroom 1', true, 'bell', 'fibrous', 'brown'),
-    createData(1, 'Mushroom 2', true, 'bell', 'fibrous', 'brown'),
-    createData(2, 'Mushroom 3', true, 'bell', 'fibrous', 'brown'),
-    createData(3, 'Mushroom 4', false, 'bell', 'fibrous', 'brown'),
-    createData(4, 'Mushroom 5', true, 'bell', 'fibrous', 'brown'),
-];
-
 export default function SearchContent(props) {
     let classes = props.classes
     let rows = props.mushrooms.mushrooms
