@@ -1,5 +1,6 @@
 json.mushrooms do
   json.array!(@mushrooms) do |item|
+    json.id item.id
     json.name item.name
     json.edible item.edible
     json.cap_shape_id item.cap_shape_id

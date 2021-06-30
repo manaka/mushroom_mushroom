@@ -17,7 +17,7 @@ json.dictionaries do
       json.name item.name
     end
   end
-  json.odor do
+  json.odors do
     json.array!(@odor) do |item|
       json.id item.id
       json.name item.name

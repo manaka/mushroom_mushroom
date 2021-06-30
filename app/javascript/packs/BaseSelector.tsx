@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export default function BaseSelector() {
+export default function BaseSelector(props) {
     const classes = useStyles();
     const [age, setAge] = React.useState('');
 
