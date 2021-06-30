@@ -2,10 +2,12 @@ import {Action, applyMiddleware, combineReducers, createStore} from "redux";
 import thunkMiddleware, {ThunkAction} from 'redux-thunk'
 import dictionariesReducer from "./dictionariesReducer";
 import mushroomsReducer from "./mushroomsReducer";
+import filtersReducer from "./filtersReducer";
 
 let reducers = combineReducers({
     dictionaries: dictionariesReducer,
-    mushrooms: mushroomsReducer
+    mushrooms: mushroomsReducer,
+    filters: filtersReducer
 });
 
 

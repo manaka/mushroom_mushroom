@@ -8,6 +8,7 @@ let initialState = {
     isLoading: true
 }
 
+
 const mushroomsReducer = (state = initialState, action: ActionsTypes): InitialState => {
     switch (action.type) {
         case 'MD/SEARCH/SET_CURRENT_PAGE': {

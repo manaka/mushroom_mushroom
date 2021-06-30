@@ -12,9 +12,7 @@ export type DictType = {
     gill_sizes: Array<DictCommonType>
 }
 
-export type MushroomType = {
-    id: number,
-    name: string
+export type MushroomBaseType = {
     edible: boolean
     cap_shape_id: number
     cap_surface_id: number
@@ -24,6 +22,6 @@ export type MushroomType = {
     gill_attachment_id: number
     gill_spacing_id: number
     gill_size_id: number
-
 }
+export type MushroomType = { id: number, name: string } & MushroomBaseType
 
