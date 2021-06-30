@@ -1,11 +1,13 @@
 import {Action, applyMiddleware, combineReducers, createStore} from "redux";
 import thunkMiddleware, {ThunkAction} from 'redux-thunk'
 import dictionariesReducer from "./dictionariesReducer";
+import mushroomsReducer from "./mushroomsReducer";
 
 let reducers = combineReducers({
-    dictionaries: dictionariesReducer
+    dictionaries: dictionariesReducer,
+    mushrooms: mushroomsReducer
 });
-// mushrooms: mushroomsReducer
+
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 export type RootState = ReturnType<typeof store.getState>
