@@ -2,22 +2,21 @@ import {DictType} from "../types";
 import {dictionariesAPI} from "../api/api";
 import {BaseThunkType, InferActionsTypes} from "./store";
 
-type initStateType = DictType & {currentPage: number}
-let initialState:initStateType = {
+let initialState:DictType = {
     cap_shapes: [],
     cap_surfaces: [],
     colors: [],
     odors: [],
     gill_attachments: [],
     gill_spacings: [],
-    gill_sizes: [],
-    currentPage: 1
+    gill_sizes: []
 }
 
 const dictionariesReducer = (state = initialState, action: ActionsTypes): InitialState => {
     switch (action.type) {
-        case 'MD/SEARCH/SET_CURRENT_PAGE': {
-            return {...state, currentPage: action.currentPage}
+        case 'MD/DICT/SET_DICTIONARIES': {
+            console.log('set dictionaries')
+            return {...state, ...action.dict}
         }
         default:
             return state
@@ -25,8 +24,20 @@ const dictionariesReducer = (state = initialState, action: ActionsTypes): Initia
 }
 
 export const actions = {
-    setCurrentPage: (currentPage: number) => ({type: 'MD/SEARCH/SET_CURRENT_PAGE', currentPage} as const),
+    setDictionaries: (dict: DictType) => ({type: 'MD/DICT/SET_DICTIONARIES', dict} as const),
 }
+
+export const loadDictionaries = (): ThunkType => {
+    return async (dispatch, getState) => {
+        let data = await dictionariesAPI.getDict()
+        console.log('loading dict')
+        console.log(data.dictionaries)
+        dispatch(actions.setDictionaries(data.dictionaries))
+    }
+}
+
+
+
 
 export default dictionariesReducer
 

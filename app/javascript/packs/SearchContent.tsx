@@ -11,10 +11,11 @@ export default function SearchContent(props) {
     let classes = props.classes
     let rows = props.mushrooms.mushrooms
     let dict = props.dictionaries
-    window.pprops = props
 
 
-    if (!rows || !dict) return <div>No data</div>
+    if (!dict || !rows || rows.length == 0 || dict.length == 0) return <div><br/><br/><br/><br/>No data</div>
+    console.log('rows')
+    console.log(rows)
     return <main className={classes.content}>
         <br/><br/><br/><br/>
         <Table size="small">

@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react';
-import ReactDOM from 'react-dom'
+import React, {FC, useEffect} from 'react';
 import {createStyles, Theme, makeStyles} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Filters from "./Filters";
 import MyHeader from "./MyHeader";
 import SearchContent from "./SearchContent";
-import axios from "axios";
+import {AppStateType} from "./redux/store";
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {filterChanged} from "./redux/mushroomsReducer";
+import {loadDictionaries} from "./redux/dictionariesReducer";
 
 const drawerWidth = 240;
 
@@ -34,24 +37,18 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
+const Search:FC<PropsType> = (props) => {
 
-export default function Search() {
     const classes = useStyles();
-    const [dictionaries, setDictionaries] = React.useState([]);
-    const [mushrooms, setMushrooms] = React.useState([]);
-
 
     useEffect(() => {
-        console.log(mushrooms)
-        if (dictionaries.length === 0) {
-            axios.get('http://localhost:3000/api/v1/dictionaries.json').then(response => {
-                setDictionaries(response.data.dictionaries)
-            })
+        console.log(props.dictionaries)
+        if (!props.dictionaries || props.dictionaries.cap_shapes.length === 0) {
+            console.log('First load of dict')
+            props.loadDictionaries()
         }
-        if (mushrooms.length === 0) {
-            axios.get('http://localhost:3000/api/v1/search.json').then(response => {
-                setMushrooms(response.data)
-            })
+        if (!props.mushrooms || props.mushrooms.length === 0) {
+            props.filterChanged(1)()
         }
 
     }, []);
@@ -60,15 +57,29 @@ export default function Search() {
         <div className={classes.root}>
             <CssBaseline/>
             <MyHeader classes={classes}/>
-            <Filters classes={classes} dictionaries={dictionaries}/>
-            <SearchContent classes={classes} dictionaries={dictionaries} mushrooms={mushrooms}  />
+            <Filters classes={classes} />
+            <SearchContent classes={classes} dictionaries={props.dictionaries} mushrooms={props.mushrooms}  />
         </div>
     );
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-        <Search/>,
-        document.getElementById('search_result'),
-    )
-});
+let mapStateToProps = (state: AppStateType) => {
+    return ({
+        filters: state.mushrooms.filters,
+        mushrooms: state.mushrooms,
+        dictionaries: state.dictionaries
+    })
+}
+
+export default compose<React.ComponentType>(
+    connect(mapStateToProps, {filterChanged, loadDictionaries})
+)(Search);
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     ReactDOM.render(
+//         <Search/>,
+//         document.getElementById('search_result'),
+//     )
+// });

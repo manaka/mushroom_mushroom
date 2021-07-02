@@ -9,7 +9,7 @@ type APIDictionariesType = {
     dictionaries: DictType
 }
 
-type APISearchType = {
+export type APISearchType = {
     mushrooms: Array<MushroomType>
 }
 
@@ -20,8 +20,8 @@ export const dictionariesAPI = {
     }
 }
 
-export const SearchAPI = {
-    getResult(filters = {}) {
+export const searchAPI = {
+    getResult(pageNumber= 1, filters = {}) {
         const queryString = Object.keys(filters).map(key => key + '=' + filters[key]).join('&');
         return instance.get<APISearchType>('search/?1=1&' + queryString)
             .then(res => res.data)
